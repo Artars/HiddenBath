@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=1]
+
+[ext_resource path="res://Sprites/Characters/personagem_jam.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Characters/personagem_anda_jam.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/personagem_anda1_jam.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters/personagem_anda2_jam.png" type="Texture" id=4]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Run",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 6.0
+} ]
+

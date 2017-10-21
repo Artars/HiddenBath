@@ -7,20 +7,23 @@ export var angle = 5
 export var stealthSpeed = 75
 export var changeDelay = 1
 var delay = changeDelay
+var animation
 
 func _ready():
 	GameManager.player = self
+	animation = get_child(1)
 	set_process(true)
+	animation.play("Run")
 	pass
 	
 func _process(delta):
 	delay -= delta
 	if Input.is_action_pressed("ui_select"):
 		if moveType == 0 and delay <= 0:
-			moveType = 1
+			changeToStealth()
 			delay = changeDelay
 		elif moveType == 1 and delay <= 0:
-			moveType = 0
+			beenSpotted()
 			delay = changeDelay
 	
 	if moveType == 0:
@@ -35,15 +38,21 @@ func _process(delta):
 		set_pos(get_pos() + dir * speed * delta)
 	elif moveType == 1:
 		var actual_pos = get_pos()
+		var direction = Vector2(0,0)
 		if Input.is_action_pressed("ui_left"):
-			actual_pos.x -= stealthSpeed * delta
+			direction.x -= 1
 		if Input.is_action_pressed("ui_right"):
-			actual_pos.x += stealthSpeed * delta
+			direction.x += 1
 		if Input.is_action_pressed("ui_up"):
-			actual_pos.y -= stealthSpeed * delta
+			direction.y -= 1
 		if Input.is_action_pressed("ui_down"):
-			actual_pos.y += stealthSpeed * delta
-		set_pos(actual_pos)
+			direction.y += 1
+		if direction.x != 0 or direction.y != 0:
+			animation.play("Walk")
+			set_rot(atan2(-direction.x,-direction.y))
+		else:
+			animation.play("Idle")
+		set_pos(get_pos() + direction*speed*delta)
 	pass
 
 func changeToStealth():
@@ -51,3 +60,6 @@ func changeToStealth():
 
 func beenSpotted():
 	moveType = 0
+	animation.play("Run")
+	var rote = get_rot()
+	dir = Vector2(-sin(rote),-cos(rote))

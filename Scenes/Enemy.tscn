@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -13,6 +13,30 @@ radius = 10.0
 custom_solver_bias = 0.0
 points = Vector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
+[sub_resource type="CanvasItemShader" id=5]
+
+_code = {
+"fragment": "uniform vec3 direction;
+uniform color tint;
+
+vec3 result = tint.rgb * direction;",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "uniform vec3 direction;
+uniform color tint;
+
+vec3 result = tint.rgb * direction;",
+"vertex_ofs": 0
+}
+
+[sub_resource type="CanvasItemMaterial" id=4]
+
+shader/shader = SubResource( 5 )
+shader/shading_mode = 0
+shader_param/direction = Vector3( 0, 1, 0 )
+shader_param/tint = Color( 1, 0.867188, 0, 1 )
+
 [node name="Enemy" type="Node2D"]
 
 script/script = ExtResource( 1 )
@@ -22,7 +46,6 @@ frontDirection = Vector2( 0, -1 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -50,6 +73,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
+material/material = SubResource( 4 )
 transform/pos = Vector2( -0.235558, -54.2772 )
 transform/scale = Vector2( 4.6577, -4.98725 )
 shape = SubResource( 2 )
