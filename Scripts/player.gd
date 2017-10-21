@@ -9,6 +9,7 @@ export var changeDelay = 1
 var delay = changeDelay
 
 func _ready():
+	GameManager.player = self
 	set_process(true)
 	pass
 	

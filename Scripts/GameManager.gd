@@ -4,7 +4,7 @@ var player
 var gamemode = 0
 
 func _ready():
-	player = get_tree().get_root().find_node("player",true)
+	player = get_tree().get_root().find_node("Player",true)
 	pass
 
 func foundPlayer():
