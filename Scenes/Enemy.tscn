@@ -18,6 +18,7 @@ points = Vector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 script/script = ExtResource( 1 )
 speed = 1
 playerSeen = false
+frontDirection = Vector2( 0, -1 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 

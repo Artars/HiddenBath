@@ -10,6 +10,7 @@
 
 transform/pos = Vector2( 519.39, 320.175 )
 transform/scale = Vector2( 0.35, 0.35 )
+rank = 1
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
@@ -18,5 +19,10 @@ transform/pos = Vector2( 96.2858, 131.972 )
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 352.474, 432.089 )
+transform/rot = 138.497
+
+[node name="Enemy 2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 567.927, 191.583 )
 
 
