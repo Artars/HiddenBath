@@ -22,5 +22,8 @@ func _on_Area2D_body_enter( body ):
 func spawn_enemies():
 	if broken:
 		var enemy = preload("res://Scenes/Enemy.tscn").instance()
+		enemy.set_pos(get_pos())
 		enemy.rotate(rand_range(0, 2*PI))
 		enemy.updateFront()
+		get_owner().add_child(enemy)
+		print("Spawn")

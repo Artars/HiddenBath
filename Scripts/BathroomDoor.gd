@@ -9,5 +9,9 @@ func _ready():
 	# Initialization here
 	pass
 
-func _on_Area2D_body_enter( body ):
-	GameMode.changeGameMode()
+
+func _on_BathroomDoor_body_enter( body ):
+	print("Passou pela porta: ", body.get_name())
+	if body.get_name() == "Player":
+		GameManager.changeGameMode()
+	pass # replace with function body

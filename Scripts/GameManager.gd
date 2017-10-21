@@ -16,11 +16,12 @@ func createNoise(position):
 	print("Made noise in ", position)
 
 func changeGameMode():
-	gamemode = 1
-	spawnEnemies()
-	player.changeToStealth()
+	if(gamemode == 0):
+		gamemode = 1
+		spawnEnemies()
+		player.changeToStealth()
 
 func spawnEnemies():
 	#var spawnPlaces = get
-	get_tree().call_group(0, "Objects", spawn_enemies)
+	get_tree().call_group(1, "Objects", "spawn_enemies")
 	print("It's a terrible night to have a curse!")
