@@ -22,4 +22,5 @@ func changeGameMode():
 
 func spawnEnemies():
 	#var spawnPlaces = get
+	get_tree().call_group(0, "Objects", spawn_enemies)
 	print("It's a terrible night to have a curse!")
