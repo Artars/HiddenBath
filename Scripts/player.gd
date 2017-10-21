@@ -10,6 +10,7 @@ export var changeDelay = 1
 var delay = changeDelay
 
 func _ready():
+	add_to_group("player")
 	set_process(true)
 	pass
 	
