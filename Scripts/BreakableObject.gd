@@ -17,7 +17,7 @@ func _on_Area2D_body_enter( body ):
 	if body.get_name() == "Player":
 		if body.moveType == 0:
 			broken = true
-			get_child(1).set_frame(1)
+			get_node("Sprite").set_frame(1)
 
 func spawn_enemies():
 	if broken:

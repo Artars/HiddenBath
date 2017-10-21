@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -13,7 +13,7 @@ radius = 10.0
 custom_solver_bias = 0.0
 points = Vector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
-[sub_resource type="CanvasItemShader" id=5]
+[sub_resource type="CanvasItemShader" id=3]
 
 _code = {
 "fragment": "uniform vec3 direction;
@@ -32,17 +32,23 @@ vec3 result = tint.rgb * direction;",
 
 [sub_resource type="CanvasItemMaterial" id=4]
 
-shader/shader = SubResource( 5 )
+shader/shader = SubResource( 3 )
 shader/shading_mode = 0
 shader_param/direction = Vector3( 0, 1, 0 )
 shader_param/tint = Color( 1, 0.867188, 0, 1 )
 
+[sub_resource type="Curve2D" id=5]
+
+bake_interval = 5.0
+_data = {
+"points": Vector2Array( 0, 0, 0, 0, 0.0397339, -144.14, 0, 0, 0, 0, 0.0397339, -49.6569, 0, 0, 0, 0, 0.0397339, 48.0841, 0, 0, 0, 0, 0.159973, 136.795 )
+}
+
 [node name="Enemy" type="Node2D"]
 
 script/script = ExtResource( 1 )
-speed = 1
-playerSeen = false
-frontDirection = Vector2( 0, -1 )
+speed = 2
+behaviour = null
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
@@ -84,6 +90,22 @@ _update_shape_index = 0
 
 transform/scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 2 )
+
+[node name="Path2D" type="Path2D" parent="."]
+
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+transform/pos = Vector2( 0.0397339, -144.14 )
+transform/rot = -90.0
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
 
 [connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 

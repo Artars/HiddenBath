@@ -20,10 +20,12 @@ transform/pos = Vector2( 96.2858, 131.972 )
 
 transform/pos = Vector2( 352.474, 432.089 )
 transform/rot = 138.497
+behaviour = 1
 
 [node name="Enemy 2" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 567.927, 191.583 )
+behaviour = 2
 
 [node name="BathroomDoor" parent="." instance=ExtResource( 4 )]
 
