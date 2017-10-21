@@ -44,3 +44,9 @@ func _process(delta):
 			actual_pos.y += stealthSpeed * delta
 		set_pos(actual_pos)
 	pass
+
+func changeToStealth():
+	moveType = 1
+
+func beenSpotted():
+	moveType = 0
