@@ -1,6 +1,7 @@
 extends Node2D
 
-export var speed = 150
+export var hurrySpeed = 150
+var speed = hurrySpeed
 var moveType = 0
 var dir = Vector2(0,-1)
 export var angle = 5
@@ -31,16 +32,15 @@ func _process(delta):
 			rotate(-angle * delta)
 			dir = dir.rotated(-angle * delta)
 		
-		set_pos(get_pos() + dir * speed * delta)
+		move(dir * speed * delta)
 	elif moveType == 1:
 		var actual_pos = get_pos()
 		if Input.is_action_pressed("ui_left"):
-			actual_pos.x -= stealthSpeed * delta
+			move(Vector2(-1,0) * stealthSpeed * delta)
 		if Input.is_action_pressed("ui_right"):
-			actual_pos.x += stealthSpeed * delta
+			move(Vector2(1,0) * stealthSpeed * delta)
 		if Input.is_action_pressed("ui_up"):
-			actual_pos.y -= stealthSpeed * delta
+			move(Vector2(0,-1) * stealthSpeed * delta)
 		if Input.is_action_pressed("ui_down"):
-			actual_pos.y += stealthSpeed * delta
-		set_pos(actual_pos)
+			move(Vector2(0,1) * stealthSpeed * delta)
 	pass
