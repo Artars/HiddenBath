@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 [gd_scene load_steps=8 format=1]
-=======
-[gd_scene load_steps=6 format=1]
->>>>>>> a33c7e8009098df49933cbc17dfec500f9abd72d
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters/ConeLanterna.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -16,7 +11,6 @@ radius = 10.0
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-<<<<<<< HEAD
 points = Vector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
 [sub_resource type="CanvasItemShader" id=3]
@@ -42,9 +36,6 @@ shader/shader = SubResource( 3 )
 shader/shading_mode = 0
 shader_param/direction = Vector3( 0, 1, 0 )
 shader_param/tint = Color( 1, 0.867188, 0, 1 )
-=======
-points = Vector2Array( 1, -10, 9.5, 10, 5, 16, -5, 16, -9.5, 10, -1, -10 )
->>>>>>> a33c7e8009098df49933cbc17dfec500f9abd72d
 
 [sub_resource type="Curve2D" id=5]
 
@@ -88,6 +79,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
+material/material = SubResource( 4 )
 transform/pos = Vector2( -0.235558, -54.2772 )
 transform/scale = Vector2( 4.6577, -4.98725 )
 shape = SubResource( 2 )
@@ -99,7 +91,6 @@ _update_shape_index = 0
 transform/scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 2 )
 
-<<<<<<< HEAD
 [node name="Path2D" type="Path2D" parent="."]
 
 curve = SubResource( 5 )
@@ -115,14 +106,6 @@ rotate = true
 cubic_interp = true
 loop = false
 lookahead = 4.0
-=======
-[node name="Sprite 2" type="Sprite" parent="."]
-
-transform/pos = Vector2( 0.540359, -80.7675 )
-transform/scale = Vector2( 0.5, 0.5 )
-z/z = -1
-texture = ExtResource( 3 )
->>>>>>> a33c7e8009098df49933cbc17dfec500f9abd72d
 
 [connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 
