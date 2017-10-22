@@ -1,27 +1,20 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/caozinho.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Characters/ConeLanterna.png" type="Texture" id=3]
-[ext_resource path="res://SpriteFrames/Enemy.tres" type="SpriteFrames" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="CapsuleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
-
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=3]
 
 bake_interval = 5.0
 _data = {
@@ -33,10 +26,11 @@ _data = {
 script/script = ExtResource( 1 )
 speed = 1
 behaviour = null
-hasAnimation = true
+hasAnimation = false
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -51,33 +45,11 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Area2D 2" type="Area2D" parent="."]
-
-transform/pos = Vector2( -0.235558, -54.2772 )
-transform/rot = 180.0
-transform/scale = Vector2( 4.6577, 4.98725 )
-input/pickable = true
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( -2.7672e-08, -0.633062, 0.585446, -2.55907e-08, 1.17635, -11.4449 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D 2"]
-
-transform/pos = Vector2( 1.17635, -11.4449 )
-transform/rot = 90.0
-transform/scale = Vector2( 0.633062, 0.585446 )
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
-
 [node name="Area2D" type="Area2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 4.6577, 0, 0, -4.98725, -0.235558, -54.2772 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -89,14 +61,14 @@ angular_damp = 1.0
 
 transform/pos = Vector2( -0.235558, -54.2772 )
 transform/scale = Vector2( 4.6577, -4.98725 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 
-visibility/visible = false
-transform/scale = Vector2( 0.6, 0.6 )
+transform/rot = -90.0
+transform/scale = Vector2( 0.025, 0.025 )
 texture = ExtResource( 2 )
 
 [node name="Sprite 2" type="Sprite" parent="."]
@@ -108,7 +80,7 @@ texture = ExtResource( 3 )
 
 [node name="Path2D" type="Path2D" parent="."]
 
-curve = SubResource( 4 )
+curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 
@@ -121,15 +93,6 @@ rotate = true
 cubic_interp = true
 loop = true
 lookahead = 4.0
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-
-transform/rot = -90.0
-transform/scale = Vector2( 0.25, 0.25 )
-frames = ExtResource( 4 )
-animation = "Running"
-
-[connection signal="body_enter" from="Area2D 2" to="." method="_on_Area2D_2_body_enter"]
 
 [connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]
 

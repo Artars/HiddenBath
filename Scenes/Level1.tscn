@@ -452,6 +452,8 @@ transform/pos = Vector2( 74, -880 )
 
 transform/pos = Vector2( -130, -830 )
 transform/scale = Vector2( 0.4, 0.4 )
+dir = Vector2( 1, 0 )
+initialTime = 30
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -479,5 +481,9 @@ script/script = SubResource( 1 )
 transform/pos = Vector2( 928, 865 )
 transform/rot = 180.0
 transform/scale = Vector2( 0.8, 0.8 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 8 )]
+
+visibility/visible = false
 
 

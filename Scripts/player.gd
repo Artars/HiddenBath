@@ -3,13 +3,15 @@ extends Node2D
 export var hurrySpeed = 150
 var speed = hurrySpeed
 var moveType = MOV_RUN
-var dir = Vector2(0,-1)
+export var dir = Vector2(0,-1)
 export var angle = 5
 export var stealthSpeed = 75
 export var changeDelay = 1
 var delay = changeDelay
 var animation
 enum MovementType {MOV_RUN,MOV_WALK}
+export var initialTime = 30
+var initialRun = true
 
 func _ready():
 	GameManager.player = self
@@ -17,23 +19,31 @@ func _ready():
 	add_to_group("player")
 	set_process(true)
 	animation.play("Run")
+	get_node("ProgressBar").show()
+	
 	pass
 	
 func _process(delta):
+	initialTime -= delta
+	if initialRun:
+		if initialTime <= 0:
+			get_tree().change_scene("res://Scenes/GameOver.tscn")
+		else:
+			get_node("ProgressBar").set_value(initialTime/30)
 	#Debug --------------------------------
-	delay -= delta
-	if Input.is_action_pressed("ui_select"):
-		if moveType == 0 and delay <= 0:
-			changeToStealth()
-			delay = changeDelay
-		elif moveType == 1 and delay <= 0:
-			beenSpotted()
-			delay = changeDelay
+	#delay -= delta
+	#if Input.is_action_pressed("ui_select"):
+	#	if moveType == 0 and delay <= 0:
+	#		changeToStealth()
+	#		delay = changeDelay
+	#	elif moveType == 1 and delay <= 0:
+	#		beenSpotted()
+	#		delay = changeDelay
 	#Other inputs ---------------------------------------
 	#Pause
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().set_pause(true)
-		var menu = get_tree().get_root().get_node("./main/PauseMenu")
+		var menu = get_owner().get_node("PauseMenu")
 		menu.set_pos(get_pos() - Vector2(128, 64))
 		menu.show()
 	#Diferent types of Movement -------------------------
@@ -71,6 +81,8 @@ func _process(delta):
 func changeToStealth():
 	animation.play("Idle")
 	moveType = MOV_WALK
+	initialRun = false
+	get_node("ProgressBar").hide()
 
 func beenSpotted():
 	moveType = MOV_RUN
