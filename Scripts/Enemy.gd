@@ -89,3 +89,7 @@ func missedPlayer():
 		get_node("Path2D/PathFollow2D").set_unit_offset(offset)
 	updateFront()
 	playerSeen = false
+
+func _on_Area2D_2_body_enter( body ):
+	if body.get_name() == "Player" and playerSeen:
+		get_tree().change_scene("res://Scenes/GameOver.tscn")

@@ -4,16 +4,18 @@
 
 [node name="GameOver" type="Node2D"]
 
+process/pause_mode = 2
+
 [node name="Button" type="Button" parent="."]
 
-rect/scale = Vector2( 5, 5 )
+rect/scale = Vector2( 3, 3 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 263.0
+margin/left = 116.0
 margin/top = 282.0
-margin/right = 397.0
+margin/right = 250.0
 margin/bottom = 311.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -28,15 +30,15 @@ anchor/left = 3
 anchor/top = 3
 anchor/right = 3
 anchor/bottom = 3
-rect/scale = Vector2( 15, 15 )
+rect/scale = Vector2( 8, 8 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 32.0
-margin/top = 32.0
-margin/right = -45.0
-margin/bottom = 18.0
+margin/left = 18.0
+margin/top = -22.0
+margin/right = -59.0
+margin/bottom = -36.0
 custom_colors/font_color = Color( 0.746094, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.000640869, 0, 0.0820313, 1 )
 text = "Game Over!"
