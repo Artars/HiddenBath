@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://tiles/tilesTest2.res" type="TileSet" id=2]
-[ext_resource path="res://Scripts/tileMap.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=2]
+[ext_resource path="res://tiles/tilesTest2.res" type="TileSet" id=3]
+[ext_resource path="res://Scripts/tileMap.gd" type="Script" id=4]
 
 [sub_resource type="GDScript" id=1]
 
@@ -25,6 +26,108 @@ func _process(delta):
 
 transform/pos = Vector2( 321.448, 359.78 )
 transform/scale = Vector2( 0.4, 0.4 )
+
+[node name="PauseMenu" type="PopupPanel" parent="."]
+
+process/pause_mode = 2
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 254.0
+margin/bottom = 128.0
+popup/exclusive = false
+script/script = ExtResource( 2 )
+
+[node name="FadeBlack" type="ColorFrame" parent="PauseMenu"]
+
+visibility/opacity = 0.53
+visibility/behind_parent = true
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -519.0
+margin/top = -381.0
+margin/right = -422.0
+margin/bottom = -333.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 13.0
+margin/right = 254.0
+margin/bottom = 181.0
+alignment = 0
+
+[node name="Label" type="Label" parent="PauseMenu/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 254.0
+margin/bottom = 14.0
+text = "Game is Paused!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="VSeparator" type="VSeparator" parent="PauseMenu/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 18.0
+margin/right = 254.0
+margin/bottom = 22.0
+
+[node name="Button" type="Button" parent="PauseMenu/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 26.0
+margin/right = 254.0
+margin/bottom = 46.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="PauseMenu/VBoxContainer/Button"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 255.0
+margin/bottom = 20.0
+text = "Return to game"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -52,7 +155,7 @@ script/script = SubResource( 1 )
 transform/pos = Vector2( 0, -10 )
 transform/scale = Vector2( 0.44444, 0.44444 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell/size = Vector2( 120, 120 )
 cell/quadrant_size = 2
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -66,6 +169,12 @@ collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( -1376249, 0, -1376248, 0, -1376247, 0, -1376246, 0, -1376245, 0, -1376244, 0, -1376243, 0, -1376242, 0, -1376241, 0, -1376240, 0, -1376239, 0, -1376238, 0, -1376237, 0, -1310713, 0, -1310701, 0, -1245177, 0, -1245165, 0, -1114115, 0, -1114114, 0, -1114113, 0, -1179648, 0, -1179647, 0, -1179646, 0, -1179645, 0, -1179644, 0, -1179643, 0, -1179642, 0, -1179641, 0, -1179629, 0, -1048579, 0, -1114105, 0, -1114093, 0, -1048569, 0, -1048557, 0, -1048556, 0, -1048555, 0, -917507, 0, -983019, 0, -851971, 0, -917497, 0, -917483, 0, -917482, 0, -786435, 0, -851961, 0, -851946, 0, -720899, 0, -786425, 0, -786410, 0, -655363, 0, -720889, 0, -720874, 0, -589827, 0, -655353, 0, -655338, 0, -524291, 0, -589817, 0, -589802, 0, -458761, 0, -458760, 0, -458759, 0, -458758, 0, -458757, 0, -458756, 0, -458755, 0, -458754, 0, -458753, 0, -524287, 0, -524286, 0, -524285, 0, -524284, 0, -524282, 0, -524281, 0, -524280, 0, -524279, 0, -524278, 0, -524276, 0, -524275, 0, -524274, 0, -524273, 0, -524272, 0, -524267, 0, -524266, 0, -393225, 0, -458750, 0, -458736, 0, -458735, 0, -458734, 0, -458733, 0, -458731, 0, -327689, 0, -393214, 0, -393200, 0, -393195, 0, -262153, 0, -327678, 0, -327664, 0, -327659, 0, -196617, 0, -262142, 0, -262123, 0, -131081, 0, -196606, 0, -196592, 0, -196587, 0, -65545, 0, -131070, 0, -131056, 0, -131051, 0, -9, 0, -65534, 0, -65520, 0, -65515, 0, 65527, 0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 16, 0, 21, 0, 131063, 0, 65536, 0, 65547, 0, 65552, 0, 65557, 0, 196599, 0, 131072, 0, 131083, 0, 131084, 0, 131085, 0, 131086, 0, 131087, 0, 131088, 0, 131089, 0, 131090, 0, 131092, 0, 131093, 0, 262135, 0, 262136, 0, 262137, 0, 262138, 0, 262139, 0, 262140, 0, 262142, 0, 262143, 0, 196608, 0, 196619, 0, 196628, 0, 327672, 0, 262144, 0, 262155, 0, 262164, 0, 393208, 0, 327680, 0, 327691, 0, 327700, 0, 458744, 0, 393227, 0, 393228, 0, 393229, 0, 393230, 0, 393232, 0, 393233, 0, 393234, 0, 393235, 0, 393236, 0, 524280, 0, 458752, 0, 458763, 0, 458772, 0, 589816, 0, 524288, 0, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 0, 524295, 0, 524296, 0, 524297, 0, 524298, 0, 524299, 0, 524308, 0, 655351, 0, 655352, 0, 589824, 0, 589833, 0, 589844, 0, 720887, 0, 655360, 0, 655380, 0, 786423, 0, 720896, 0, 720905, 0, 720916, 0, 851959, 0, 786432, 0, 786441, 0, 786452, 0, 917495, 0, 851977, 0, 851988, 0, 983031, 0, 983032, 0, 917504, 0, 917523, 0, 917524, 0, 1048568, 0, 1048569, 0, 983040, 0, 983049, 0, 983058, 0, 983059, 0, 1114105, 0, 1114106, 0, 1114107, 0, 1114108, 0, 1114109, 0, 1114110, 0, 1114111, 0, 1048576, 0, 1048585, 0, 1048586, 0, 1048587, 0, 1048588, 0, 1048589, 0, 1048590, 0, 1048591, 0, 1048592, 0, 1048593, 0, 1048594, 0, 1114112, 0, 1114121, 0, 1179648, 0, 1179649, 0, 1179650, 0, 1179651, 0, 1179652, 0, 1179653, 0, 1179654, 0, 1179655, 0, 1179656, 0, 1179657, 0 )
-script/script = ExtResource( 3 )
+script/script = ExtResource( 4 )
+
+[connection signal="about_to_show" from="PauseMenu" to="PauseMenu" method="_on_PopupPanel_about_to_show"]
+
+[connection signal="popup_hide" from="PauseMenu" to="PauseMenu" method="_on_PopupPanel_popup_hide"]
+
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Button" to="PauseMenu" method="_on_Return_pressed"]
 
 

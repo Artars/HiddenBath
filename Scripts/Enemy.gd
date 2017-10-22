@@ -3,6 +3,7 @@ extends Node2D
 export var speed = 2
 enum {STATIONARY = 0, PATROL, LOOKAROUND}
 export(int, 0, 2) var behaviour
+export var hasAnimation = true
 var playerSeen = false
 var frontDirection = Vector2(0,-1)
 var playerNode = null
@@ -10,6 +11,7 @@ var offset
 var firstRot
 var spawnPos
 var direction = 1
+var animator
 
 func updateFront():
 	frontDirection = Vector2(0,-1).rotated(get_rot())
@@ -28,10 +30,17 @@ func _ready():
 	updateFront()
 	add_to_group("Enemies")
 	playerSeen = false
+	
+	#take animation referecnce
+	if(hasAnimation):
+		animator = get_node("AnimatedSprite")
+		animator.play("Idle")
 	set_process(true)
 
 func _process(delta):
 	if playerSeen:
+		if(hasAnimation):
+			animator.play("Running")
 		var direction = playerNode.get_pos() - get_pos()
 		direction = direction.normalized()
 		turnTo(direction)
@@ -40,6 +49,8 @@ func _process(delta):
 		if behaviour == STATIONARY:
 			pass
 		elif behaviour == PATROL:
+			if(hasAnimation):
+				animator.play("Running")
 			var oldOffset = get_node("Path2D/PathFollow2D").get_offset()
 			var newOffset = oldOffset + speed * direction
 			get_node("Path2D/PathFollow2D").set_offset(newOffset)
