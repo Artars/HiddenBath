@@ -12,5 +12,5 @@ func _ready():
 
 func _on_Exit_body_enter( body ):
 	if body.get_name() == "Player":
-		if not body.inital_run:
+		if not body.initialRun:
 			get_tree().change_scene("res://Scenes/Victory.tscn")
