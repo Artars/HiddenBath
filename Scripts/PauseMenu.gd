@@ -38,3 +38,8 @@ func _on_Return_pressed():
 	get_tree().set_pause(false)
 	hide()
 	pass # replace with function body
+
+
+func _on_Button_2_pressed():
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	pass # replace with function body

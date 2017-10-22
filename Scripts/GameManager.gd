@@ -25,3 +25,10 @@ func spawnEnemies():
 	#var spawnPlaces = get
 	get_tree().call_group(1, "Objects", "spawn_enemies")
 	print("It's a terrible night to have a curse!")
+
+func respawnEnemies():
+	var enemies = get_tree().get_nodes_in_group("Enemies")
+	for ene in enemies:
+		ene.remove_from_group("Enemies")
+		ene.queue_free()
+	spawnEnemies()

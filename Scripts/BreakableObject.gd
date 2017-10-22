@@ -21,7 +21,13 @@ func _on_Area2D_body_enter( body ):
 
 func spawn_enemies():
 	if broken:
-		var enemy = preload("res://Scenes/Enemy.tscn").instance()
+		var enemy 
+		if rank == 1:
+			enemy= preload("res://Scenes/Enemy.tscn").instance()
+		elif rank == 2:
+			enemy = preload("res://Scenes/Velha.tscn").instance()
+		elif rank == 3:
+			enemy = preload("res://Scenes/Enemy2.tscn").instance()
 		enemy.set_pos(get_pos())
 		enemy.rotate(rand_range(0, 2*PI))
 		enemy.updateFront()

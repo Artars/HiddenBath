@@ -3,7 +3,7 @@ extends Node2D
 export var hurrySpeed = 150
 var speed = hurrySpeed
 var moveType = MOV_RUN
-var dir = Vector2(0,-1)
+export var dir = Vector2(0,-1)
 export var angle = 5
 export var stealthSpeed = 75
 export var changeDelay = 1
@@ -33,7 +33,7 @@ func _process(delta):
 	#Pause
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().set_pause(true)
-		var menu = get_tree().get_root().get_node("./main/PauseMenu")
+		var menu = get_owner().get_node("PauseMenu")
 		menu.set_pos(get_pos() - Vector2(128, 64))
 		menu.show()
 	#Diferent types of Movement -------------------------

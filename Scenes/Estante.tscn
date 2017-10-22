@@ -8,8 +8,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 9.26139, 10 )
 
-[node name="Area2D" type="Area2D"]
+[node name="Estante" type="Area2D"]
 
+transform/scale = Vector2( 0.2, 0.2 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 14.8525, 0, 0, 38.8479, 0, 0 )
