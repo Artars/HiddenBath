@@ -1,6 +1,7 @@
 extends Node2D
 
-export var speed = 150
+export var hurrySpeed = 150
+var speed = hurrySpeed
 var moveType = 0
 var dir = Vector2(0,-1)
 export var angle = 5
@@ -12,6 +13,7 @@ var animation
 func _ready():
 	GameManager.player = self
 	animation = get_child(1)
+	add_to_group("player")
 	set_process(true)
 	animation.play("Run")
 	pass
@@ -35,27 +37,23 @@ func _process(delta):
 			rotate(-angle * delta)
 			dir = dir.rotated(-angle * delta)
 		
-		set_pos(get_pos() + dir * speed * delta)
+		move(dir * speed * delta)
 	elif moveType == 1:
 		var actual_pos = get_pos()
 		var direction = Vector2(0,0)
 		if Input.is_action_pressed("ui_left"):
-			direction.x -= 1
+			move(Vector2(-1,0) * stealthSpeed * delta)
 		if Input.is_action_pressed("ui_right"):
-			direction.x += 1
+			move(Vector2(1,0) * stealthSpeed * delta)
 		if Input.is_action_pressed("ui_up"):
-			direction.y -= 1
+			move(Vector2(0,-1) * stealthSpeed * delta)
 		if Input.is_action_pressed("ui_down"):
-			direction.y += 1
-		if direction.x != 0 or direction.y != 0:
-			animation.play("Walk")
-			set_rot(atan2(-direction.x,-direction.y))
-		else:
-			animation.play("Idle")
-		set_pos(get_pos() + direction*speed*delta)
+			move(Vector2(0,1) * stealthSpeed * delta)
+		#precisa consertar
 	pass
 
 func changeToStealth():
+	animation.play("Idle")
 	moveType = 1
 
 func beenSpotted():
