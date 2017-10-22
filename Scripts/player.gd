@@ -26,11 +26,11 @@ func _process(delta):
 	
 	if moveType == 0:
 		if Input.is_action_pressed("ui_left"):
-			rotate(angle * delta)
+			get_node("Sprite").rotate(angle * delta)
 			dir = dir.rotated(angle * delta)
 	
 		if Input.is_action_pressed("ui_right"):
-			rotate(-angle * delta)
+			get_node("Sprite").rotate(-angle * delta)
 			dir = dir.rotated(-angle * delta)
 		
 		move(dir * speed * delta)

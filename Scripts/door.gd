@@ -11,5 +11,5 @@ func interact():
 
 func _on_Area2D_body_enter( body ):
 	if body.is_in_group("player"):
-		print("ABRE DISRAÇAAAA!!!")
+		get_node("KinematicBody2D").set_coll
 	pass # replace with function body
