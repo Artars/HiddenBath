@@ -1,0 +1,262 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Sprites/HUD/menu.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/CreditsMenu.tscn" type="PackedScene" id=3]
+
+[node name="Control" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 472.63, 248.305 )
+transform/scale = Vector2( 0.120393, 0.120393 )
+texture = ExtResource( 1 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 22.0
+margin/top = 298.0
+margin/right = 294.0
+margin/bottom = 453.0
+script/script = ExtResource( 2 )
+maxLevel = 10
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 265.0
+margin/bottom = 148.0
+alignment = 0
+
+[node name="Label" type="Label" parent="PanelContainer/VBox"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 258.0
+margin/bottom = 14.0
+text = "Select level:"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="SelectionContainer" type="HBoxContainer" parent="PanelContainer/VBox"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 18.0
+margin/right = 258.0
+margin/bottom = 38.0
+alignment = 1
+
+[node name="DecreaseB" type="Button" parent="PanelContainer/VBox/SelectionContainer"]
+
+rect/min_size = Vector2( 20, 20 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 95.0
+margin/top = 0.0
+margin/right = 115.0
+margin/bottom = 20.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="PanelContainer/VBox/SelectionContainer/DecreaseB"]
+
+rect/min_size = Vector2( 20, 20 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 20.0
+margin/bottom = 20.0
+text = "<"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Level" type="Label" parent="PanelContainer/VBox/SelectionContainer"]
+
+rect/min_size = Vector2( 20, 20 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 119.0
+margin/top = 0.0
+margin/right = 139.0
+margin/bottom = 20.0
+text = "1"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="IncreaseB" type="Button" parent="PanelContainer/VBox/SelectionContainer"]
+
+rect/min_size = Vector2( 20, 20 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 143.0
+margin/top = 0.0
+margin/right = 163.0
+margin/bottom = 20.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="PanelContainer/VBox/SelectionContainer/IncreaseB"]
+
+rect/min_size = Vector2( 20, 20 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 20.0
+margin/bottom = 20.0
+text = ">"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="PlayButton" type="Button" parent="PanelContainer/VBox"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 42.0
+margin/right = 258.0
+margin/bottom = 62.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="PanelContainer/VBox/PlayButton"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 2.0
+margin/top = 0.0
+margin/right = 261.0
+margin/bottom = 20.0
+text = "Play"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBox"]
+
+visibility/opacity = 0.0
+rect/min_size = Vector2( 0, 50 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 66.0
+margin/right = 258.0
+margin/bottom = 116.0
+
+[node name="Credits" type="Button" parent="PanelContainer/VBox"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 120.0
+margin/right = 258.0
+margin/bottom = 140.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="PanelContainer/VBox/Credits"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 258.0
+margin/bottom = 20.0
+text = "Credits"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Panel" type="ColorFrame" parent="."]
+
+visibility/visible = false
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -14.0
+margin/top = -14.0
+margin/right = 669.0
+margin/bottom = 487.0
+color = Color( 0.0946655, 0.328166, 0.515625, 1 )
+
+[node name="CreditsMenu" parent="." instance=ExtResource( 3 )]
+
+visibility/visible = false
+margin/left = 12.0
+margin/top = 2.0
+margin/right = 639.0
+margin/bottom = 465.0
+
+[connection signal="pressed" from="PanelContainer/VBox/SelectionContainer/DecreaseB" to="PanelContainer" method="_on_DecreaseB_pressed"]
+
+[connection signal="pressed" from="PanelContainer/VBox/SelectionContainer/IncreaseB" to="PanelContainer" method="_on_IncreaseB_pressed"]
+
+[connection signal="pressed" from="PanelContainer/VBox/PlayButton" to="PanelContainer" method="_on_PlayButton_pressed"]
+
+[connection signal="pressed" from="PanelContainer/VBox/Credits" to="PanelContainer" method="_on_Credits_pressed"]
+
+

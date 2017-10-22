@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Scripts/GameOverButton.gd" type="Script" id=1]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+
+rect/scale = Vector2( 5, 5 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 263.0
+margin/top = 282.0
+margin/right = 397.0
+margin/bottom = 311.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Back to Main Menu"
+flat = false
+script/script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+rect/scale = Vector2( 15, 15 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 32.0
+margin/top = 32.0
+margin/right = -45.0
+margin/bottom = 18.0
+custom_colors/font_color = Color( 0.746094, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.000640869, 0, 0.0820313, 1 )
+text = "Game Over!"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="button_down" from="Button" to="Button" method="_on_Button_button_down"]
+
+
