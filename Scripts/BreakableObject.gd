@@ -31,5 +31,7 @@ func spawn_enemies():
 		enemy.set_pos(get_pos())
 		enemy.rotate(rand_range(0, 2*PI))
 		enemy.updateFront()
+		enemy.behaviour = randi()%3
+		print("Enemy, behav: ", enemy.behaviour)
 		get_owner().add_child(enemy)
 		print("Spawn")

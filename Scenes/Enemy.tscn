@@ -103,7 +103,7 @@ texture = ExtResource( 2 )
 
 transform/pos = Vector2( 0.540359, -80.7675 )
 transform/scale = Vector2( 0.5, 0.5 )
-z/z = -1
+z/z = 1
 texture = ExtResource( 3 )
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -126,6 +126,7 @@ lookahead = 4.0
 
 transform/rot = -90.0
 transform/scale = Vector2( 0.25, 0.25 )
+z/z = 2
 frames = ExtResource( 4 )
 animation = "Running"
 
