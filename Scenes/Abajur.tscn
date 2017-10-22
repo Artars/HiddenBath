@@ -8,8 +8,9 @@
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Area2D" type="Area2D"]
+[node name="Abajur" type="Area2D"]
 
+transform/scale = Vector2( 0.1, 0.1 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 40, 0, 0, 40, 0, 0 )

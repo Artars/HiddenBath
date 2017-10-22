@@ -1,15 +1,16 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Scripts/BreakableObject.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/conjunt_mesa_jam.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/sofa.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 39.334, 28.6493 )
 
-[node name="Area2D" type="Area2D"]
+[node name="Sofa" type="Area2D"]
 
+transform/scale = Vector2( 0.07, 0.07 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 22.958, 0, 0, 11.363, -3.02921, -4.45797 )
