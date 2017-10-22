@@ -431,6 +431,7 @@ transform/pos = Vector2( -136, -837 )
 transform/rot = -90.0
 transform/scale = Vector2( 0.4, 0.4 )
 dir = Vector2( 1, 0 )
+initialTime = 30
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -475,5 +476,7 @@ tile_data = IntArray( -1376249, 0, -1376248, 0, -1376247, 0, -1376246, 0, -13762
 script/script = ExtResource( 7 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 8 )]
+
+visibility/visible = false
 
 

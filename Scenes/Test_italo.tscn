@@ -23,6 +23,7 @@ transform/scale = Vector2( 0.15, 0.15 )
 
 transform/pos = Vector2( 96.2858, 131.972 )
 dir = Vector2( 0, -1 )
+initialTime = 30
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 

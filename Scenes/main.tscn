@@ -13,6 +13,7 @@
 transform/pos = Vector2( 321.448, 359.78 )
 transform/scale = Vector2( 0.4, 0.4 )
 dir = Vector2( 0, -1 )
+initialTime = 30
 
 [node name="PauseMenu" parent="." instance=ExtResource( 2 )]
 
