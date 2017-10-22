@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
-[ext_resource path="res://Scenes/Abajur.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Table.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Estante.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Sofa.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://tiles/tilesTest2.res" type="TileSet" id=6]
-[ext_resource path="res://Scripts/tileMap.gd" type="Script" id=7]
+[ext_resource path="res://tiles/tilesTest3.res" type="TileSet" id=1]
+[ext_resource path="res://Scripts/tileMap.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Abajur.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Table.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Estante.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Sofa.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/BathroomDoor.tscn" type="PackedScene" id=8]
 
 [sub_resource type="GDScript" id=1]
 
@@ -25,93 +26,116 @@ func _process(delta):
 
 [node name="Level1" type="Node"]
 
+[node name="TileMap" type="TileMap" parent="."]
+
+transform/pos = Vector2( 0, -10 )
+transform/scale = Vector2( 0.092, 0.092 )
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 576, 576 )
+cell/quadrant_size = 2
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -1376249, 0, -1376248, 0, -1376247, 0, -1376246, 0, -1376245, 0, -1376244, 0, -1376243, 0, -1376242, 0, -1376241, 0, -1376240, 0, -1376239, 0, -1376238, 0, -1376237, 0, -1310713, 0, -1310712, 1, -1310711, 1, -1310710, 1, -1310709, 1, -1310708, 1, -1310707, 1, -1310706, 1, -1310705, 1, -1310704, 1, -1310703, 1, -1310702, 1, -1310701, 0, -1245177, 0, -1245176, 1, -1245175, 1, -1245174, 1, -1245173, 1, -1245172, 1, -1245171, 1, -1245170, 1, -1245169, 1, -1245168, 1, -1245167, 1, -1245166, 1, -1245165, 0, -1114115, 0, -1114114, 0, -1114113, 0, -1179648, 0, -1179647, 0, -1179646, 0, -1179645, 0, -1179644, 0, -1179643, 0, -1179642, 0, -1179641, 0, -1179640, 1, -1179639, 1, -1179638, 1, -1179637, 1, -1179636, 1, -1179635, 1, -1179634, 1, -1179633, 1, -1179632, 1, -1179631, 1, -1179630, 1, -1179629, 0, -1048581, 0, -1048580, 0, -1048579, 0, -1048578, 1, -1048577, 1, -1114112, 1, -1114111, 1, -1114110, 1, -1114109, 1, -1114108, 1, -1114107, 1, -1114106, 1, -1114105, 0, -1114104, 1, -1114103, 1, -1114102, 1, -1114101, 1, -1114100, 1, -1114099, 1, -1114098, 1, -1114097, 1, -1114096, 1, -1114095, 1, -1114094, 1, -1114093, 0, -983045, 0, -983044, 1, -983043, 1, -983042, 1, -983041, 1, -1048576, 1, -1048575, 1, -1048574, 1, -1048573, 1, -1048572, 1, -1048571, 1, -1048570, 1, -1048569, 0, -1048568, 1, -1048567, 1, -1048566, 1, -1048565, 1, -1048564, 1, -1048563, 1, -1048562, 1, -1048561, 1, -1048560, 1, -1048559, 1, -1048558, 1, -1048557, 0, -1048556, 0, -1048555, 0, -917509, 0, -917508, 0, -917507, 0, -917506, 1, -917505, 1, -983040, 1, -983039, 1, -983038, 1, -983037, 1, -983036, 1, -983035, 1, -983034, 1, -983033, 1, -983032, 1, -983031, 1, -983030, 1, -983029, 1, -983028, 1, -983027, 1, -983026, 1, -983025, 1, -983024, 1, -983023, 1, -983022, 1, -983021, 1, -983020, 1, -983019, 0, -851971, 0, -851970, 1, -851969, 1, -917504, 1, -917503, 1, -917502, 1, -917501, 1, -917500, 1, -917499, 1, -917497, 0, -917496, 1, -917495, 1, -917494, 1, -917493, 1, -917492, 1, -917491, 1, -917490, 1, -917489, 1, -917488, 1, -917487, 1, -917486, 1, -917485, 1, -917484, 1, -917483, 0, -917482, 0, -786435, 0, -786434, 1, -786433, 1, -851968, 1, -851967, 1, -851966, 1, -851965, 1, -851964, 1, -851963, 1, -851961, 0, -851960, 1, -851959, 1, -851958, 1, -851957, 1, -851956, 1, -851955, 1, -851954, 1, -851953, 1, -851952, 1, -851949, 1, -851948, 1, -851947, 1, -851946, 0, -720899, 0, -720898, 1, -720897, 1, -786432, 1, -786431, 1, -786430, 1, -786429, 1, -786428, 1, -786427, 1, -786426, 1, -786425, 0, -786424, 1, -786423, 1, -786422, 1, -786421, 1, -786420, 1, -786419, 1, -786418, 1, -786417, 1, -786416, 1, -786415, 1, -786414, 1, -786413, 1, -786412, 1, -786411, 1, -786410, 0, -655363, 0, -655362, 1, -655361, 1, -720896, 1, -720895, 1, -720893, 1, -720892, 1, -720891, 1, -720890, 1, -720889, 0, -720888, 1, -720887, 1, -720886, 1, -720885, 1, -720884, 1, -720883, 1, -720882, 1, -720881, 1, -720880, 1, -720879, 1, -720878, 1, -720877, 1, -720876, 1, -720875, 1, -720874, 0, -589827, 0, -589826, 1, -589825, 1, -655360, 1, -655359, 1, -655357, 1, -655356, 1, -655355, 1, -655354, 1, -655353, 0, -655352, 1, -655351, 1, -655350, 1, -655349, 1, -655348, 1, -655347, 1, -655346, 1, -655345, 1, -655344, 1, -655343, 1, -655342, 1, -655341, 1, -655340, 1, -655339, 1, -655338, 0, -524291, 0, -524290, 1, -524289, 1, -589824, 1, -589823, 1, -589822, 1, -589821, 1, -589820, 1, -589819, 1, -589818, 1, -589817, 0, -589816, 1, -589815, 1, -589814, 1, -589813, 1, -589812, 1, -589811, 1, -589810, 1, -589809, 1, -589808, 1, -589807, 1, -589806, 1, -589805, 1, -589804, 1, -589803, 1, -589802, 0, -458761, 0, -458760, 0, -458759, 0, -458758, 0, -458757, 0, -458756, 0, -458755, 0, -458754, 0, -458753, 0, -524288, 1, -524287, 0, -524286, 0, -524285, 0, -524284, 0, -524283, 1, -524282, 0, -524281, 0, -524280, 0, -524279, 0, -524278, 0, -524277, 1, -524276, 0, -524275, 0, -524274, 0, -524273, 0, -524272, 0, -524271, 1, -524270, 1, -524269, 1, -524268, 1, -524267, 0, -524266, 0, -393225, 0, -393224, 1, -393223, 1, -393222, 1, -393221, 1, -393220, 1, -393219, 1, -393218, 1, -393217, 1, -458752, 1, -458751, 1, -458750, 0, -458749, 1, -458748, 1, -458747, 1, -458746, 1, -458745, 1, -458744, 1, -458743, 1, -458742, 1, -458741, 1, -458740, 1, -458739, 1, -458738, 1, -458737, 1, -458736, 0, -458735, 0, -458734, 0, -458733, 0, -458732, 1, -458731, 0, -327689, 0, -327688, 1, -327687, 1, -327686, 1, -327685, 1, -327684, 1, -327683, 1, -327682, 1, -327681, 1, -393216, 1, -393215, 1, -393214, 0, -393213, 1, -393212, 1, -393211, 1, -393210, 1, -393209, 1, -393208, 1, -393207, 1, -393206, 1, -393205, 1, -393204, 1, -393203, 1, -393202, 1, -393201, 1, -393200, 0, -393199, 1, -393198, 1, -393197, 1, -393196, 1, -393195, 0, -262153, 0, -262152, 1, -262151, 1, -262150, 1, -262149, 1, -262148, 1, -262147, 1, -262146, 1, -262145, 1, -327680, 1, -327679, 1, -327678, 0, -327677, 1, -327676, 1, -327675, 1, -327674, 1, -327673, 1, -327672, 1, -327671, 1, -327670, 1, -327669, 1, -327668, 1, -327667, 1, -327666, 1, -327665, 1, -327664, 0, -327663, 1, -327662, 1, -327661, 1, -327660, 1, -327659, 0, -196617, 0, -196616, 1, -196615, 1, -196614, 1, -196613, 1, -196612, 1, -196611, 1, -196610, 1, -196609, 1, -262143, 1, -262142, 0, -262141, 1, -262140, 1, -262139, 1, -262138, 1, -262137, 1, -262136, 1, -262135, 1, -262134, 1, -262133, 1, -262132, 1, -262131, 1, -262130, 1, -262129, 1, -262128, 1, -262127, 1, -262126, 1, -262125, 1, -262124, 1, -262123, 0, -131081, 0, -131080, 1, -131079, 1, -131078, 1, -131077, 1, -131076, 1, -131075, 1, -131074, 1, -131073, 1, -196608, 1, -196607, 1, -196606, 0, -196605, 1, -196604, 1, -196603, 1, -196602, 1, -196601, 1, -196600, 1, -196599, 1, -196598, 1, -196597, 1, -196596, 1, -196595, 1, -196594, 1, -196593, 1, -196592, 0, -196591, 1, -196590, 1, -196589, 1, -196588, 1, -196587, 0, -65545, 0, -65544, 1, -65543, 1, -65542, 1, -65541, 1, -65540, 1, -65539, 1, -65538, 1, -65537, 1, -131072, 1, -131071, 1, -131070, 0, -131069, 1, -131068, 1, -131067, 1, -131066, 1, -131065, 1, -131064, 1, -131063, 1, -131062, 1, -131061, 1, -131060, 1, -131059, 1, -131058, 1, -131057, 1, -131056, 0, -131055, 1, -131054, 1, -131053, 1, -131052, 1, -131051, 0, -9, 0, -8, 1, -7, 1, -6, 1, -5, 1, -4, 1, -3, 1, -2, 1, -1, 1, -65536, 1, -65535, 1, -65534, 0, -65533, 1, -65532, 1, -65531, 1, -65530, 1, -65529, 1, -65528, 1, -65527, 1, -65526, 1, -65525, 1, -65524, 1, -65523, 1, -65522, 1, -65521, 1, -65520, 0, -65519, 1, -65518, 1, -65517, 1, -65516, 1, -65515, 0, 65527, 0, 65528, 1, 65529, 1, 65530, 1, 65531, 1, 65532, 1, 65533, 1, 65534, 1, 65535, 1, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 1, 13, 1, 14, 1, 15, 1, 16, 0, 17, 1, 18, 1, 19, 1, 20, 1, 21, 0, 131063, 0, 131064, 1, 131065, 1, 131066, 1, 131067, 1, 131068, 1, 131069, 1, 131070, 1, 131071, 1, 65536, 0, 65537, 1, 65538, 1, 65539, 1, 65540, 1, 65541, 1, 65542, 1, 65543, 1, 65544, 1, 65545, 1, 65546, 1, 65547, 0, 65548, 1, 65549, 1, 65550, 1, 65551, 1, 65552, 0, 65553, 1, 65554, 1, 65555, 1, 65556, 1, 65557, 0, 196599, 0, 196600, 1, 196601, 1, 196602, 1, 196603, 1, 196604, 1, 196605, 1, 196606, 1, 196607, 1, 131072, 0, 131073, 1, 131074, 1, 131075, 1, 131076, 1, 131077, 1, 131078, 1, 131079, 1, 131080, 1, 131081, 1, 131082, 1, 131083, 0, 131084, 0, 131085, 0, 131086, 0, 131087, 0, 131088, 0, 131089, 0, 131090, 0, 131091, 1, 131092, 0, 131093, 0, 262135, 0, 262136, 0, 262137, 0, 262138, 0, 262139, 0, 262140, 0, 262141, 1, 262142, 0, 262143, 0, 196608, 0, 196609, 1, 196610, 1, 196611, 1, 196612, 1, 196613, 1, 196614, 1, 196615, 1, 196616, 1, 196617, 1, 196618, 1, 196619, 0, 196620, 1, 196621, 1, 196622, 1, 196623, 1, 196624, 1, 196625, 1, 196626, 1, 196627, 1, 196628, 0, 327672, 0, 327673, 1, 327674, 1, 327675, 1, 327676, 1, 327677, 1, 327678, 1, 327679, 1, 262144, 0, 262145, 1, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 262151, 1, 262152, 1, 262153, 1, 262154, 1, 262155, 0, 262156, 1, 262157, 1, 262158, 1, 262159, 1, 262160, 1, 262161, 1, 262162, 1, 262163, 1, 262164, 0, 393208, 0, 393209, 1, 393210, 1, 393211, 1, 393212, 1, 393213, 1, 393214, 1, 393215, 1, 327680, 0, 327681, 1, 327682, 1, 327683, 1, 327684, 1, 327685, 1, 327686, 1, 327687, 1, 327688, 1, 327689, 1, 327690, 1, 327691, 0, 327692, 1, 327693, 1, 327694, 1, 327695, 1, 327696, 1, 327697, 1, 327698, 1, 327699, 1, 327700, 0, 458744, 0, 458745, 1, 458746, 1, 458747, 1, 458748, 1, 458749, 1, 458750, 1, 458751, 1, 393216, 1, 393217, 1, 393218, 1, 393219, 1, 393220, 1, 393221, 1, 393222, 1, 393223, 1, 393224, 1, 393225, 1, 393226, 1, 393227, 0, 393228, 0, 393229, 0, 393230, 0, 393231, 1, 393232, 0, 393233, 0, 393234, 0, 393235, 0, 393236, 0, 524280, 0, 524281, 1, 524282, 1, 524283, 1, 524284, 1, 524285, 1, 524286, 1, 524287, 1, 458752, 0, 458753, 1, 458754, 1, 458755, 1, 458756, 1, 458757, 1, 458758, 1, 458759, 1, 458760, 1, 458761, 1, 458762, 1, 458763, 0, 458764, 1, 458765, 1, 458766, 1, 458767, 1, 458768, 1, 458769, 1, 458770, 1, 458771, 1, 458772, 0, 589816, 0, 589817, 1, 589819, 1, 589820, 1, 589821, 1, 589822, 1, 524288, 0, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 0, 524295, 0, 524296, 0, 524297, 0, 524298, 0, 524299, 0, 524300, 1, 524301, 1, 524302, 1, 524303, 1, 524304, 1, 524305, 1, 524306, 1, 524307, 1, 524308, 0, 655351, 0, 655352, 0, 655353, 1, 655354, 1, 655355, 1, 655356, 1, 655357, 1, 655358, 1, 589824, 0, 589825, 1, 589826, 1, 589827, 1, 589828, 1, 589829, 1, 589830, 1, 589831, 1, 589832, 1, 589833, 0, 589834, 1, 589835, 1, 589836, 1, 589837, 1, 589838, 1, 589839, 1, 589840, 1, 589841, 1, 589842, 1, 589843, 1, 589844, 0, 720887, 0, 720888, 1, 720889, 1, 720890, 1, 720891, 1, 720892, 1, 720893, 1, 720894, 1, 720895, 1, 655360, 0, 655361, 1, 655362, 1, 655363, 1, 655364, 1, 655365, 1, 655366, 1, 655367, 1, 655368, 1, 655369, 1, 655370, 1, 655371, 1, 655372, 1, 655373, 1, 655374, 1, 655375, 1, 655376, 1, 655377, 1, 655378, 1, 655379, 1, 655380, 0, 786423, 0, 786424, 1, 786425, 1, 786426, 1, 786427, 1, 786428, 1, 786429, 1, 786430, 1, 786431, 1, 720896, 0, 720897, 1, 720898, 1, 720899, 1, 720900, 1, 720901, 1, 720902, 1, 720903, 1, 720904, 1, 720905, 0, 720906, 1, 720907, 1, 720908, 1, 720909, 1, 720910, 1, 720911, 1, 720912, 1, 720913, 1, 720914, 1, 720915, 1, 720916, 0, 851959, 0, 851960, 1, 851961, 1, 851962, 1, 851963, 1, 851964, 1, 851965, 1, 851966, 1, 851967, 1, 786432, 0, 786433, 1, 786434, 1, 786435, 1, 786436, 1, 786437, 1, 786438, 1, 786439, 1, 786440, 1, 786441, 0, 786442, 1, 786443, 1, 786444, 1, 786445, 1, 786446, 1, 786447, 1, 786448, 1, 786449, 1, 786450, 1, 786451, 1, 786452, 0, 917495, 0, 917496, 1, 917497, 1, 917498, 1, 917499, 1, 917500, 1, 917501, 1, 917502, 1, 917503, 1, 851968, 1, 851969, 1, 851970, 1, 851971, 1, 851972, 1, 851973, 1, 851974, 1, 851975, 1, 851976, 1, 851977, 0, 851978, 1, 851979, 1, 851980, 1, 851981, 1, 851982, 1, 851983, 1, 851984, 1, 851985, 1, 851986, 1, 851987, 1, 851988, 0, 983031, 0, 983032, 0, 983033, 1, 983034, 1, 983035, 1, 983036, 1, 983037, 1, 983038, 1, 983039, 1, 917504, 0, 917505, 1, 917506, 1, 917507, 1, 917508, 1, 917509, 1, 917510, 1, 917511, 1, 917512, 1, 917513, 1, 917514, 1, 917515, 1, 917516, 1, 917517, 1, 917518, 1, 917519, 1, 917520, 1, 917521, 1, 917522, 1, 917523, 0, 917524, 0, 1048568, 0, 1048569, 0, 1048570, 1, 1048571, 1, 1048572, 1, 1048573, 1, 1048574, 1, 1048575, 1, 983040, 0, 983041, 1, 983042, 1, 983043, 1, 983044, 1, 983045, 1, 983046, 1, 983047, 1, 983048, 1, 983049, 0, 983050, 1, 983051, 1, 983052, 1, 983053, 1, 983054, 1, 983055, 1, 983056, 1, 983057, 1, 983058, 0, 983059, 0, 1114105, 0, 1114106, 0, 1114107, 0, 1114108, 0, 1114109, 0, 1114110, 0, 1114111, 0, 1048576, 0, 1048577, 1, 1048578, 1, 1048579, 1, 1048580, 1, 1048581, 1, 1048582, 1, 1048583, 1, 1048584, 1, 1048585, 0, 1048586, 0, 1048587, 0, 1048588, 0, 1048589, 0, 1048590, 0, 1048591, 0, 1048592, 0, 1048593, 1, 1048594, 0, 1114112, 0, 1114113, 1, 1114114, 1, 1114115, 1, 1114116, 1, 1114117, 1, 1114118, 1, 1114119, 1, 1114120, 1, 1114121, 0, 1114128, 0, 1114129, 0, 1114130, 0, 1179648, 0, 1179649, 0, 1179650, 0, 1179651, 0, 1179652, 0, 1179653, 0, 1179654, 0, 1179655, 0, 1179656, 0, 1179657, 0 )
+script/script = ExtResource( 2 )
+
 [node name="Abajurs" type="Node" parent="."]
 
-[node name="Abajur" parent="Abajurs" instance=ExtResource( 1 )]
+editor/display_folded = true
+
+[node name="Abajur" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -64, 100 )
 
-[node name="Abajur1" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur1" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 320, -860 )
 
-[node name="Abajur2" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur2" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 871, -481 )
 
-[node name="Abajur3" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur3" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 720, -1010 )
 
-[node name="Abajur4" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur4" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1129, -657 )
 
-[node name="Abajur5" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur5" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -50, -490 )
 
-[node name="Abajur6" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur6" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -50, -490 )
 
-[node name="Abajur7" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur7" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -350, -200 )
 
-[node name="Abajur8" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur8" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 40, -200 )
 
-[node name="Abajur9" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur9" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 220, -320 )
 
-[node name="Abajur10" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur10" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 800, -320 )
 
-[node name="Abajur11" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur11" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1070, -200 )
 
-[node name="Abajur12" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur12" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 953, -78 )
 
-[node name="Abajur13" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur13" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 940, 260 )
 
-[node name="Abajur14" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur14" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1000, 600 )
 
-[node name="Abajur15" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur15" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 760, 420 )
 
-[node name="Abajur16" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur16" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 590, 680 )
 
-[node name="Abajur17" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur17" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 200, 870 )
 
-[node name="Abajur18" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur18" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 310, 550 )
 
-[node name="Abajur19" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur19" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -300, 440 )
 
-[node name="Abajur20" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur20" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -50, 640 )
 
-[node name="Abajur21" parent="Abajurs" instance=ExtResource( 1 )]
+[node name="Abajur21" parent="Abajurs" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 320, 230 )
 
@@ -119,72 +143,72 @@ transform/pos = Vector2( 320, 230 )
 
 editor/display_folded = true
 
-[node name="Table5 3" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table5 3" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 360, 880 )
 
-[node name="Table23" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table23" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 150, -540 )
 transform/rot = 90.0
 
-[node name="Table2 2" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table2 2" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( -310, 300 )
 transform/rot = 90.0
 
-[node name="Table56" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table56" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1000, 460 )
 transform/rot = 90.0
 
-[node name="Table5 5" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table5 5" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 498, -552 )
 transform/rot = 90.0
 
-[node name="Table1" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table1" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 110, 230 )
 transform/rot = 90.0
 
-[node name="Table53" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table53" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 470, -310 )
 
-[node name="Table5 2" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table5 2" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 990, -430 )
 
-[node name="Table4" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table4" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 750, 780 )
 
-[node name="Table6" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table6" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 160, 550 )
 
-[node name="Table5" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table5" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 538, -1012 )
 
-[node name="Table3" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table3" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( -310, -100 )
 
-[node name="Table55" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table55" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( -170, 790 )
 
-[node name="Table5 4" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table5 4" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 898, -1012 )
 
-[node name="Table2" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table2" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 0, -100 )
 
-[node name="Table" parent="Tables" instance=ExtResource( 2 )]
+[node name="Table" parent="Tables" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 490, 120 )
 
@@ -192,239 +216,241 @@ transform/pos = Vector2( 490, 120 )
 
 editor/display_folded = true
 
-[node name="Estante" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 340, -514 )
 
-[node name="Estante5" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante5" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( -370, 30 )
 
-[node name="Estante2" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante2" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( -314, -350 )
 transform/rot = 90.0
 
-[node name="Estante4" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante4" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( -250, 110 )
 transform/rot = 90.0
 
-[node name="Estante3" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante3" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( -115, -350 )
 transform/rot = 90.0
 
-[node name="Estante1" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante1" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 340, -676 )
 
-[node name="Estante6" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante6" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 340, -676 )
 
-[node name="Estante9" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante9" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 750, -729 )
 
-[node name="Estante11" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante11" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 750, -567 )
 
-[node name="Estante14" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante14" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 350, -270 )
 
-[node name="Estante12" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante12" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 470, -220 )
 transform/rot = 90.0
 
-[node name="Estante15" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante15" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 250, -50 )
 transform/rot = 90.0
 
-[node name="Estante16" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante16" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 414, -50 )
 transform/rot = 90.0
 
-[node name="Estante17" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante17" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 573, -50 )
 transform/rot = 90.0
 
-[node name="Estante13" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante13" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 640, -220 )
 transform/rot = 90.0
 
-[node name="Estante20" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante20" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 500, 380 )
 transform/rot = 90.0
 
-[node name="Estante21" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante21" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 330, 380 )
 transform/rot = 90.0
 
-[node name="Estante22" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante22" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 155, 380 )
 transform/rot = 90.0
 
-[node name="Estante27" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante27" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 981, 690 )
 transform/rot = 90.0
 
-[node name="Estante28" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante28" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 792, 690 )
 transform/rot = 90.0
 
-[node name="Estante10" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante10" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1143, -519 )
 
-[node name="Estante18" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante18" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1093, 12 )
 
-[node name="Estante23" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante23" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 549, 260 )
 
-[node name="Estante24" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante24" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( -40, 480 )
 
-[node name="Estante25" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante25" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( -390, 630 )
 
-[node name="Estante26" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante26" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 90, 860 )
 
-[node name="Estante19" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante19" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 680, 230 )
 
-[node name="Estante7" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante7" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 530, -840 )
 transform/rot = 90.0
 
-[node name="Estante8" parent="Estantes" instance=ExtResource( 3 )]
+[node name="Estante8" parent="Estantes" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 700, -840 )
 transform/rot = 90.0
 
 [node name="Sofas" type="Node" parent="."]
 
-[node name="Sofa" parent="Sofas" instance=ExtResource( 4 )]
+editor/display_folded = true
+
+[node name="Sofa" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 75, -310 )
 transform/rot = -90.0
 
-[node name="Sofa4" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa4" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 985, -902 )
 transform/rot = -90.0
 
-[node name="Sofa8 2" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa8 2" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 816.24, -27.7599 )
 transform/rot = -90.0
 
-[node name="Sofa7" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa7" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 1040, -590 )
 transform/rot = -90.0
 
-[node name="Sofa3" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa3" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -20, -790 )
 transform/rot = 90.0
 
-[node name="Sofa5" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa5" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 901, -810 )
 transform/rot = 180.0
 
-[node name="Sofa8" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa8" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 732.24, 64.24 )
 transform/rot = 180.0
 
-[node name="Sofa10" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa10" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 980, -300 )
 
-[node name="Sofa11" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa11" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 790, 190 )
 
-[node name="Sofa12" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa12" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 680, 440 )
 transform/rot = 90.0
 
-[node name="Sofa14" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa14" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 450, 640 )
 transform/rot = -90.0
 
-[node name="Sofa17" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa17" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -190, 620 )
 transform/rot = -90.0
 
-[node name="Sofa13" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa13" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 770, 530 )
 transform/rot = 180.0
 
-[node name="Sofa15" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa15" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 350, 720 )
 transform/rot = 180.0
 
-[node name="Sofa16" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa16" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -280, 530 )
 
-[node name="Sofa18" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa18" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 140, 90 )
 
-[node name="Sofa19" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa19" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 290, 90 )
 
-[node name="Sofa9" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa9" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 943, 31 )
 transform/rot = 90.0
 
-[node name="Sofa1" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa1" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 210, -880 )
 
-[node name="Sofa6" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa6" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 950, -680 )
 
-[node name="Sofa2" parent="Sofas" instance=ExtResource( 4 )]
+[node name="Sofa2" parent="Sofas" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 74, -880 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Player" parent="." instance=ExtResource( 7 )]
 
-transform/pos = Vector2( -136, -837 )
+transform/pos = Vector2( -130, -830 )
 transform/scale = Vector2( 0.4, 0.4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -448,25 +474,10 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = SubResource( 1 )
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="BathroomDoor" parent="." instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 0, -10 )
-transform/scale = Vector2( 0.44444, 0.44444 )
-mode = 0
-tile_set = ExtResource( 6 )
-cell/size = Vector2( 120, 120 )
-cell/quadrant_size = 2
-cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-cell/half_offset = 2
-cell/tile_origin = 0
-cell/y_sort = false
-collision/use_kinematic = false
-collision/friction = 1.0
-collision/bounce = 0.0
-collision/layers = 1
-collision/mask = 1
-occluder/light_mask = 1
-tile_data = IntArray( -1376249, 0, -1376248, 0, -1376247, 0, -1376246, 0, -1376245, 0, -1376244, 0, -1376243, 0, -1376242, 0, -1376241, 0, -1376240, 0, -1376239, 0, -1376238, 0, -1376237, 0, -1310713, 0, -1310701, 0, -1245177, 0, -1245165, 0, -1114115, 0, -1114114, 0, -1114113, 0, -1179648, 0, -1179647, 0, -1179646, 0, -1179645, 0, -1179644, 0, -1179643, 0, -1179642, 0, -1179641, 0, -1179629, 0, -1048579, 0, -1114105, 0, -1114093, 0, -1048569, 0, -1048557, 0, -1048556, 0, -1048555, 0, -917507, 0, -983019, 0, -851971, 0, -917497, 0, -917483, 0, -917482, 0, -786435, 0, -851961, 0, -851946, 0, -720899, 0, -786425, 0, -786410, 0, -655363, 0, -720889, 0, -720874, 0, -589827, 0, -655353, 0, -655338, 0, -524291, 0, -589817, 0, -589802, 0, -458761, 0, -458760, 0, -458759, 0, -458758, 0, -458757, 0, -458756, 0, -458755, 0, -458754, 0, -458753, 0, -524287, 0, -524286, 0, -524285, 0, -524284, 0, -524282, 0, -524281, 0, -524280, 0, -524279, 0, -524278, 0, -524276, 0, -524275, 0, -524274, 0, -524273, 0, -524272, 0, -524267, 0, -524266, 0, -393225, 0, -458750, 0, -458736, 0, -458735, 0, -458734, 0, -458733, 0, -458731, 0, -327689, 0, -393214, 0, -393200, 0, -393195, 0, -262153, 0, -327678, 0, -327664, 0, -327659, 0, -196617, 0, -262142, 0, -262123, 0, -131081, 0, -196606, 0, -196592, 0, -196587, 0, -65545, 0, -131070, 0, -131056, 0, -131051, 0, -9, 0, -65534, 0, -65520, 0, -65515, 0, 65527, 0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 16, 0, 21, 0, 131063, 0, 65536, 0, 65547, 0, 65552, 0, 65557, 0, 196599, 0, 131072, 0, 131083, 0, 131084, 0, 131085, 0, 131086, 0, 131087, 0, 131088, 0, 131089, 0, 131090, 0, 131092, 0, 131093, 0, 262135, 0, 262136, 0, 262137, 0, 262138, 0, 262139, 0, 262140, 0, 262142, 0, 262143, 0, 196608, 0, 196619, 0, 196628, 0, 327672, 0, 262144, 0, 262155, 0, 262164, 0, 393208, 0, 327680, 0, 327691, 0, 327700, 0, 458744, 0, 393227, 0, 393228, 0, 393229, 0, 393230, 0, 393232, 0, 393233, 0, 393234, 0, 393235, 0, 393236, 0, 524280, 0, 458752, 0, 458763, 0, 458772, 0, 589816, 0, 524288, 0, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 0, 524295, 0, 524296, 0, 524297, 0, 524298, 0, 524299, 0, 524308, 0, 655351, 0, 655352, 0, 589824, 0, 589833, 0, 589844, 0, 720887, 0, 655360, 0, 655380, 0, 786423, 0, 720896, 0, 720905, 0, 720916, 0, 851959, 0, 786432, 0, 786441, 0, 786452, 0, 917495, 0, 851977, 0, 851988, 0, 983031, 0, 983032, 0, 917504, 0, 917523, 0, 917524, 0, 1048568, 0, 1048569, 0, 983040, 0, 983049, 0, 983058, 0, 983059, 0, 1114105, 0, 1114106, 0, 1114107, 0, 1114108, 0, 1114109, 0, 1114110, 0, 1114111, 0, 1048576, 0, 1048585, 0, 1048586, 0, 1048587, 0, 1048588, 0, 1048589, 0, 1048590, 0, 1048591, 0, 1048592, 0, 1048593, 0, 1048594, 0, 1114112, 0, 1114121, 0, 1179648, 0, 1179649, 0, 1179650, 0, 1179651, 0, 1179652, 0, 1179653, 0, 1179654, 0, 1179655, 0, 1179656, 0, 1179657, 0 )
-script/script = ExtResource( 7 )
+transform/pos = Vector2( 928, 865 )
+transform/rot = 180.0
+transform/scale = Vector2( 0.8, 0.8 )
 
 
