@@ -2,13 +2,14 @@ extends Node2D
 
 export var hurrySpeed = 150
 var speed = hurrySpeed
-var moveType = 0
+var moveType = MOV_RUN
 var dir = Vector2(0,-1)
 export var angle = 5
 export var stealthSpeed = 75
 export var changeDelay = 1
 var delay = changeDelay
 var animation
+enum MovementType {MOV_RUN,MOV_WALK}
 
 func _ready():
 	GameManager.player = self
@@ -19,6 +20,7 @@ func _ready():
 	pass
 	
 func _process(delta):
+	#Debug --------------------------------
 	delay -= delta
 	if Input.is_action_pressed("ui_select"):
 		if moveType == 0 and delay <= 0:
@@ -27,8 +29,16 @@ func _process(delta):
 		elif moveType == 1 and delay <= 0:
 			beenSpotted()
 			delay = changeDelay
-	
-	if moveType == 0:
+	#Other inputs ---------------------------------------
+	#Pause
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().set_pause(true)
+		var menu = get_tree().get_root().get_node("./main/PauseMenu")
+		menu.set_pos(get_pos() - Vector2(128, 64))
+		menu.show()
+	#Diferent types of Movement -------------------------
+	#Running movement
+	if moveType == MOV_RUN:
 		if Input.is_action_pressed("ui_left"):
 			rotate(angle * delta)
 			dir = dir.rotated(angle * delta)
@@ -38,7 +48,8 @@ func _process(delta):
 			dir = dir.rotated(-angle * delta)
 		
 		move(dir * speed * delta)
-	elif moveType == 1:
+	#Walking movement ------------------------------------
+	elif moveType == MOV_WALK:
 		var actual_pos = get_pos()
 		var direction = Vector2(0,0)
 		if Input.is_action_pressed("ui_left"):
@@ -55,15 +66,14 @@ func _process(delta):
 			set_rot(atan2(-direction.x,-direction.y))
 		else:
 			animation.play("Idle")
-		#precisa consertar
 	pass
 
 func changeToStealth():
 	animation.play("Idle")
-	moveType = 1
+	moveType = MOV_WALK
 
 func beenSpotted():
-	moveType = 0
+	moveType = MOV_RUN
 	animation.play("Run")
 	var rote = get_rot()
 	dir = Vector2(-sin(rote),-cos(rote))

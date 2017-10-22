@@ -1,0 +1,261 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Scripts/CreditsMenu.gd" type="Script" id=1]
+
+[node name="CreditsMenu" type="Popup"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 1.0
+margin/right = 478.0
+margin/bottom = 227.0
+popup/exclusive = false
+script/script = ExtResource( 1 )
+
+[node name="Credits" type="PanelContainer" parent="."]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 239.0
+margin/top = 113.0
+margin/right = -239.0
+margin/bottom = -113.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 471.0
+margin/bottom = 219.0
+alignment = 0
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 464.0
+margin/bottom = 14.0
+text = "Credits"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HSeparator 2" type="HSeparator" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 18.0
+margin/right = 464.0
+margin/bottom = 21.0
+
+[node name="HSeparator3" type="HSeparator" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 25.0
+margin/right = 464.0
+margin/bottom = 28.0
+
+[node name="VSeparator" type="VSeparator" parent="Credits/VBoxContainer"]
+
+visibility/opacity = 0.0
+rect/min_size = Vector2( 0, 10 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 32.0
+margin/right = 464.0
+margin/bottom = 42.0
+
+[node name="Label 2" type="Label" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 46.0
+margin/right = 464.0
+margin/bottom = 60.0
+text = "Programmers"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HSeparator 3" type="HSeparator" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 64.0
+margin/right = 464.0
+margin/bottom = 67.0
+
+[node name="Label 3" type="Label" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 71.0
+margin/right = 464.0
+margin/bottom = 85.0
+text = "Arthur Rosa de Souza"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label 4" type="Label" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 89.0
+margin/right = 464.0
+margin/bottom = 103.0
+text = "Ítalo Tobler Silva"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label 5" type="Label" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 107.0
+margin/right = 464.0
+margin/bottom = 121.0
+text = "Willian Gonzaga Leodegario"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HSeparator" type="HSeparator" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 125.0
+margin/right = 464.0
+margin/bottom = 128.0
+
+[node name="Label 7" type="Label" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 132.0
+margin/right = 464.0
+margin/bottom = 146.0
+text = "Artists:"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label 6" type="Label" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 150.0
+margin/right = 464.0
+margin/bottom = 164.0
+text = "Fernanda Tostes Marana"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="VSeparator 2" type="VSeparator" parent="Credits/VBoxContainer"]
+
+visibility/opacity = 0.0
+rect/min_size = Vector2( 0, 20 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 168.0
+margin/right = 464.0
+margin/bottom = 188.0
+
+[node name="ExitButton" type="Button" parent="Credits/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 192.0
+margin/right = 464.0
+margin/bottom = 212.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer/ExitButton"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 465.0
+margin/bottom = 25.0
+text = "Close Window"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="pressed" from="Credits/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+
+
