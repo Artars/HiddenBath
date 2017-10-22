@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/ConeLanterna.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -13,41 +14,17 @@ radius = 10.0
 custom_solver_bias = 0.0
 points = Vector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
-[sub_resource type="CanvasItemShader" id=3]
-
-_code = {
-"fragment": "uniform vec3 direction;
-uniform color tint;
-
-vec3 result = tint.rgb * direction;",
-"fragment_ofs": 0,
-"light": "",
-"light_ofs": 0,
-"vertex": "uniform vec3 direction;
-uniform color tint;
-
-vec3 result = tint.rgb * direction;",
-"vertex_ofs": 0
-}
-
-[sub_resource type="CanvasItemMaterial" id=4]
-
-shader/shader = SubResource( 3 )
-shader/shading_mode = 0
-shader_param/direction = Vector3( 0, 1, 0 )
-shader_param/tint = Color( 1, 0.867188, 0, 1 )
-
-[sub_resource type="Curve2D" id=5]
+[sub_resource type="Curve2D" id=3]
 
 bake_interval = 5.0
 _data = {
-"points": Vector2Array( 0, 0, 0, 0, 0.0397339, -144.14, 0, 0, 0, 0, 0.0397339, -49.6569, 0, 0, 0, 0, 0.0397339, 48.0841, 0, 0, 0, 0, 0.159973, 136.795 )
+"points": Vector2Array( 0, 0, 0, 0, 0.160095, -121.205, 0, 0, 0, 0, 0.160095, 116.796 )
 }
 
 [node name="Enemy" type="Node2D"]
 
 script/script = ExtResource( 1 )
-speed = 2
+speed = 1
 behaviour = null
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
@@ -79,7 +56,6 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
-material/material = SubResource( 4 )
 transform/pos = Vector2( -0.235558, -54.2772 )
 transform/scale = Vector2( 4.6577, -4.98725 )
 shape = SubResource( 2 )
@@ -91,20 +67,27 @@ _update_shape_index = 0
 transform/scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 2 )
 
+[node name="Sprite 2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0.540359, -80.7675 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -1
+texture = ExtResource( 3 )
+
 [node name="Path2D" type="Path2D" parent="."]
 
-curve = SubResource( 5 )
+curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 
-transform/pos = Vector2( 0.0397339, -144.14 )
+transform/pos = Vector2( 0.160095, -121.205 )
 transform/rot = -90.0
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
 cubic_interp = true
-loop = false
+loop = true
 lookahead = 4.0
 
 [connection signal="body_enter" from="Area2D" to="." method="_on_Area2D_body_enter"]

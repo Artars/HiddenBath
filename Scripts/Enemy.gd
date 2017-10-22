@@ -1,13 +1,14 @@
 extends Node2D
 
 export var speed = 2
-enum Behaviour {STATIONARY = 0, PATROL, LOOKAROUND}
+enum {STATIONARY = 0, PATROL, LOOKAROUND}
 export(int, 0, 2) var behaviour
 var playerSeen = false
 var frontDirection = Vector2(0,-1)
 var playerNode = null
 var offset
 var firstRot
+var spawnPos
 var direction = 1
 
 func updateFront():
@@ -20,7 +21,10 @@ func turnTo(direction):
 
 func _ready():
 	firstRot = get_rotd()
-	offset = 0 if behaviour == 3 else get_node("Path2D/PathFollow2D").get_unit_offset()
+	spawnPos = get_pos()
+	offset = 0 if behaviour == LOOKAROUND else 0.5
+	if behaviour == PATROL:
+		get_node("Path2D/PathFollow2D").set_unit_offset(offset)
 	updateFront()
 	add_to_group("Enemies")
 	playerSeen = false
@@ -33,17 +37,23 @@ func _process(delta):
 		turnTo(direction)
 		set_pos(get_pos() + (direction * speed))
 	else:
-		if behaviour == 0:
+		if behaviour == STATIONARY:
 			pass
-		elif behaviour == 1:
-			offset = get_node("Path2D/PathFollow2D").get_unit_offset()
-			var newOffset = get_node("Path2D/PathFollow2D").get_offset() + speed * direction
+		elif behaviour == PATROL:
+			var oldOffset = get_node("Path2D/PathFollow2D").get_offset()
+			var newOffset = oldOffset + speed * direction
 			get_node("Path2D/PathFollow2D").set_offset(newOffset)
 			
-			if offset >= 1 or offset <= -1:
+			offset = get_node("Path2D/PathFollow2D").get_unit_offset()
+			if offset >= 1 or offset <= 0:
+				offset = 1 if offset >= 1 else 0
+				get_node("Path2D/PathFollow2D").set_unit_offset(offset)
 				direction = -1 * direction
 				set_rotd(get_rotd() + 180)
-		elif behaviour == 2:
+			
+			var deltaPos = newOffset - oldOffset
+			set_pos(get_pos() + deltaPos * frontDirection)
+		elif behaviour == LOOKAROUND:
 			offset += direction
 			set_rotd(firstRot + offset)
 			if offset >= 90 or offset <= -90:
@@ -61,4 +71,10 @@ func followPlayer( player ):
 	playerSeen = true
 
 func missedPlayer():
+	firstRot = get_rotd()
+	spawnPos = get_pos()
+	offset = 0 if behaviour == LOOKAROUND else 0.5
+	if behaviour == PATROL:
+		get_node("Path2D/PathFollow2D").set_unit_offset(offset)
+	updateFront()
 	playerSeen = false
