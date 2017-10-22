@@ -25,12 +25,10 @@ func _process(delta):
 
 transform/pos = Vector2( 321.448, 359.78 )
 transform/scale = Vector2( 0.4, 0.4 )
-hurrySpeed = 150
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 transform/pos = Vector2( 330, 230 )
-transform/scale = Vector2( 1, 1 )
 anchor_mode = 1
 rotating = false
 current = true

@@ -42,13 +42,19 @@ func _process(delta):
 		var actual_pos = get_pos()
 		var direction = Vector2(0,0)
 		if Input.is_action_pressed("ui_left"):
-			move(Vector2(-1,0) * stealthSpeed * delta)
+			direction.x -= 1
 		if Input.is_action_pressed("ui_right"):
-			move(Vector2(1,0) * stealthSpeed * delta)
+			direction.x += 1
 		if Input.is_action_pressed("ui_up"):
-			move(Vector2(0,-1) * stealthSpeed * delta)
+			direction.y -= 1
 		if Input.is_action_pressed("ui_down"):
-			move(Vector2(0,1) * stealthSpeed * delta)
+			direction.y += 1
+		move(direction * stealthSpeed * delta)
+		if direction.x != 0 or direction.y != 0:
+			animation.play("Walk")
+			set_rot(atan2(-direction.x,-direction.y))
+		else:
+			animation.play("Idle")
 		#precisa consertar
 	pass
 
